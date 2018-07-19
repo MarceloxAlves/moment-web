@@ -5,7 +5,8 @@ module.exports = function (ctx) {
     // app plugins (/src/plugins)
     plugins: [
       'i18n',
-      'axios'
+      'axios',
+      'moment'
     ],
     css: [
       'app.styl'
@@ -53,20 +54,31 @@ module.exports = function (ctx) {
         'QItem',
         'QItemMain',
         'QItemSide',
+        'QItemSeparator',
+        'QItemTile',
         'QSlider',
         'QCard',
         'QCardTitle',
         'QCardMain',
         'QCardMedia',
         'QCardSeparator',
-        'QCardActions'
+        'QCardActions',
+        'QTabs',
+        'QTab',
+        'QTabPane',
+        'QRouteTab',
+        'QTimeline',
+        'QTimelineEntry',
+        'QInfiniteScroll'
       ],
       directives: [
         'Ripple'
       ],
       // Quasar plugins
       plugins: [
-        'Notify'
+        'Notify',
+        'Loading',
+        'Dialog'
       ]
       // iconSet: ctx.theme.mat ? 'material-icons' : 'ionicons'
       // i18n: 'de' // Quasar language
@@ -77,9 +89,9 @@ module.exports = function (ctx) {
       // workboxPluginMode: 'InjectManifest',
       // workboxOptions: {},
       manifest: {
-        // name: 'Quasar App',
-        // short_name: 'Quasar-PWA',
-        // description: 'Best PWA App in town!',
+         name: 'Moment App',
+         short_name: 'Moment-PWA',
+         description: '',
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',
