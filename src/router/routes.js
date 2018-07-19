@@ -1,5 +1,7 @@
 
 export default [
+
+  // DEFAULT
   {
     path: '/',
     component: () => import('layouts/home'),
@@ -8,18 +10,25 @@ export default [
     ]
   },
 
+  // USUÁRIO
   {
     path: '/cadastro',
-    component: () => import('layouts/default'),
+    component: () => import('layouts/home'),
     children: [
       { path: '', component: () => import('pages/usuario/usuario-form') }
     ]
   },
 
+  // EVENTO
   {
-    path: '/marcelo',
-    component: () => import('layouts/default')
+    path: '/painel',
+    component: () => import('layouts/logado'),
+    children: [
+      { path: '', component: () => import('pages/painel') }
+    ]
   },
+
+  // 404
   { // Always leave this as last one
     path: '*',
     component: () => import('pages/404')
