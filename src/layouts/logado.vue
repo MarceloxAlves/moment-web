@@ -8,8 +8,6 @@
           <q-btn flat label="Moment" @click="$router.push('/')"/>
           <div slot="subtitle">Marketplace de eventos</div>
         </q-toolbar-title>
-        <q-btn push label="Criar Conta" color="yellow-10" dense icon="people"  @click="$router.push('/cadastro')"/> &nbsp;
-        <q-btn push label="Acessar" color="green-6" dense icon="lock" />
       </q-toolbar>
     </q-layout-header>
 
