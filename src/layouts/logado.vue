@@ -8,6 +8,7 @@
           <q-btn flat label="Moment" @click="$router.push('/')"/>
           <div slot="subtitle">Marketplace de eventos</div>
         </q-toolbar-title>
+        <q-btn push label="Sair"  @click="$router.push('/')" color="gray-6" dense icon="reply" />
       </q-toolbar>
     </q-layout-header>
 

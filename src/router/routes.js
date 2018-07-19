@@ -19,6 +19,14 @@ export default [
     ]
   },
 
+  {
+    path: '/acesso',
+    component: () => import('layouts/home'),
+    children: [
+      { path: '', component: () => import('pages/usuario/login') }
+    ]
+  },
+
   // EVENTO
   {
     path: '/painel',

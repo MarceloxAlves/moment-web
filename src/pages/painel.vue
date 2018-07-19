@@ -13,7 +13,7 @@
               <q-tab-pane name="tab-1">
                 <meus-eventos></meus-eventos>
               </q-tab-pane>
-              <q-tab-pane name="tab-3">Tab Three</q-tab-pane>
+              <q-tab-pane name="tab-3">ToDo</q-tab-pane>
             </q-tabs>
           </div>
         </div>
