@@ -65,9 +65,10 @@
         salvar(){
           this.$http.post( '/usuario/cadastro', {
             params:{
+              id:null,
               nome: this.usuario.nome,
               email: this.usuario.email,
-              password: this.usuario.password,
+              password: this.usuario.password
             }
           })
             .then(response => {
