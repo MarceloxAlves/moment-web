@@ -64,10 +64,13 @@
       methods: {
         salvar(){
           this.$http.post( '/usuario/cadastro', {
+            mode: 'no-cors',
             headers: {
+              'Access-Control-Allow-Origin': '*',
               'Content-Type': 'application/json',
-              'Access-Control-Allow-Origin': '*'
             },
+            withCredentials: true,
+            credentials: 'same-origin',
             params:{
               id:null,
               nome: this.usuario.nome,
