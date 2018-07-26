@@ -63,7 +63,7 @@
         },
       methods: {
         salvar(){
-          this.$http.post( '/evento/cadastro', {
+          this.$http.post( '/usuario/cadastro', {
             params:{
               nome: this.usuario.nome,
               email: this.usuario.email,
@@ -71,7 +71,12 @@
             }
           })
             .then(response => {
-              console.log(response)
+              Dialog.create(
+                {
+                  title: 'Cadastrado',
+                  message: "Usuario Cadastrado com sucesso!"
+                }
+              )
             })
             .catch(e=>{
               Dialog.create(
