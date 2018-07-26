@@ -16,7 +16,7 @@ let errorFunction = error => {
 }
 
 const axiosMoment =
-  axios.create({ baseURL: 'http://localhost:8081' })
+  axios.create({ baseURL: 'https://moment-api-v1.herokuapp.com/' })
 
 axiosMoment.interceptors.request.use(loadFunction)
 
