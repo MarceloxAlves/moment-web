@@ -67,7 +67,8 @@
             headers: {
               "Access-Control-Allow-Origin": "*",
               "Content-Type": "application/json;charset=UTF-8",
-              "vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+              "vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
+              "Cache-Control": "no-cache,no-store,must-revalidate,max-age=-1,private"
             },
             params:{
               id:null,
