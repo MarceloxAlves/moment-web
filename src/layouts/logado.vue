@@ -4,14 +4,38 @@
       <q-toolbar
         color="secondary"
       >
+        <q-btn flat round dense icon="menu" @click="left = !left" aria-label="Toggle menu on left side" />
         <q-toolbar-title >
           <q-btn flat label="Moment" @click="$router.push('/')"/>
           <div slot="subtitle">Marketplace de eventos</div>
         </q-toolbar-title>
-        <q-btn push label="Sair"  @click="$router.push('/')" color="gray-6" dense icon="reply" />
+        <q-btn push label="Sair"  @click="logout()" color="orange-6" dense icon="reply" />
       </q-toolbar>
     </q-layout-header>
 
+    <q-layout-drawer
+      side="left"
+      v-model="left"
+    >
+      <q-scroll-area class="fit">
+        <q-list-header class="text-center">
+          <q-icon  name="person" style="font-size:100px; margin: 0 auto;" /><br>
+          {{usuario.nome}}
+          <p><small>{{usuario.email}}</small></p>
+        </q-list-header>
+
+        <q-item to="/painel">
+          <q-item-side icon="home" />
+          <q-item-main label="Início" sublabel="voltar para a pagina inicial" />
+        </q-item>
+        <q-item to="/eventos">
+          <q-item-side icon="event" />
+          <q-item-main label="Eventos" sublabel="eventos cadastrados" />
+          <q-item-side right icon="thumb_up" />
+        </q-item>
+
+      </q-scroll-area>
+    </q-layout-drawer>
 
     <q-page-container>
       <router-view />
@@ -21,24 +45,65 @@
 
 <script>
 import { openURL } from 'quasar'
+import { LocalStorage, SessionStorage } from 'quasar'
+import { Dialog } from 'quasar'
 
 export default {
   name: 'LayoutDefault',
   data () {
     return {
-      leftDrawerOpen: this.$q.platform.is.desktop
+      left: false,
+      usuario :{
+          id: null,
+          nome: null,
+          email: null
+      }
     }
   },
+  watch:{
+
+  },
   created(){
-    this.getCount()
+      this.getDados()
   },
   methods: {
     openURL,
-    getCount () {
-      this.$http.get('/evento/count', {})
-      .then(response => {
-        alert(response.data)
-      })
+    drawerClick (e) {
+      // if in "mini" state and user
+      // click on drawer, we switch it to "normal" mode
+      if (this.miniState) {
+        this.miniState = false
+
+        // notice we have registered an event with capture flag;
+        // we need to stop further propagation as this click is
+        // intended for switching drawer to "normal" mode only
+        e.stopPropagation()
+      }
+    },
+    getDados(){
+      this.$http.get('/usuario/'+ SessionStorage.get.item("email"))
+        .then(response => {
+          let result = response.data.result.response
+          let usuario = result.usuario
+          if (usuario != null){
+            this.usuario = usuario
+          }else{
+            this.$router.push('/acesso');
+          }
+        })
+        .catch(e=>{
+          console.log(e)
+          Dialog.create(
+            {
+              title: 'Error',
+              message: "Erro ao acessar o serviço"
+            }
+          )
+        });
+    },
+    logout(){
+      SessionStorage.clear();
+      this.$router.push("/acesso")
     }
   }
 }

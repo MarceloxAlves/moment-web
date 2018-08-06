@@ -6,7 +6,7 @@ module.exports = function (ctx) {
     plugins: [
       'i18n',
       'axios',
-      'moment'
+      'moment',
     ],
     css: [
       'app.styl'
@@ -69,7 +69,8 @@ module.exports = function (ctx) {
         'QRouteTab',
         'QTimeline',
         'QTimelineEntry',
-        'QInfiniteScroll'
+        'QInfiniteScroll',
+        'QScrollArea'
       ],
       directives: [
         'Ripple'
@@ -78,7 +79,9 @@ module.exports = function (ctx) {
       plugins: [
         'Notify',
         'Loading',
-        'Dialog'
+        'Dialog',
+        'LocalStorage',
+        'SessionStorage'
       ]
       // iconSet: ctx.theme.mat ? 'material-icons' : 'ionicons'
       // i18n: 'de' // Quasar language
@@ -146,9 +149,8 @@ module.exports = function (ctx) {
         // win32metadata: { ... }
       },
       builder: {
-        // https://www.electron.build/configuration/configuration
-
-        // appId: 'quasar-app'
+         https: 'www.electron.build/configuration/configuration',
+         appId: 'moment'
       }
     }
   }

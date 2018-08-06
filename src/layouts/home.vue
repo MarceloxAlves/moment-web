@@ -38,7 +38,6 @@ export default {
     getCount () {
       this.$http.get('/evento/count', {})
       .then(response => {
-        alert(response.data)
       })
     }
   }
