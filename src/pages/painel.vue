@@ -11,9 +11,9 @@
               <q-tab  slot="title" name="tab-3" icon="account_box" label="Minhas Inscrições" />
               <!-- Targets -->
               <q-tab-pane name="tab-1">
-                <meus-eventos></meus-eventos>
+                    Listar meus eventos
               </q-tab-pane>
-              <q-tab-pane name="tab-3">ToDo</q-tab-pane>
+              <q-tab-pane name="tab-3">Listar Minhas Inscrições</q-tab-pane>
             </q-tabs>
           </div>
         </div>
