@@ -63,19 +63,14 @@
         },
       methods: {
         salvar(){
-          this.$http.post( '/usuario/cadastro', {
+          this.$http.post( '/usuario/cadastrar', {
             headers: {
-              "Access-Control-Allow-Origin": "*",
-              "Content-Type": "application/json;charset=UTF-8",
-              "vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
-              "Cache-Control": "no-cache,no-store,must-revalidate,max-age=-1,private"
+              'Content-Type': 'application/json;charset=UTF-8'
             },
-            params:{
-              id:null,
-              nome: this.usuario.nome,
-              email: this.usuario.email,
-              password: this.usuario.password
-            }
+              'id':null,
+              'nome': this.usuario.nome,
+              'email':  this.usuario.email,
+              'password': this.usuario.password
           })
             .then(response => {
               Dialog.create(
@@ -89,7 +84,7 @@
               Dialog.create(
                 {
                   title: 'Error',
-                  message: "" + e
+                  message: "Não foi possível realizar o cadastro"
                 }
               )
             });

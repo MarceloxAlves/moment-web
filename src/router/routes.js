@@ -35,6 +35,13 @@ export default [
       { path: '', component: () => import('pages/painel') }
     ]
   },
+  {
+    path: '/eventos',
+    component: () => import('layouts/logado'),
+    children: [
+      { path: '', component: () => import('pages/evento/listagem') }
+    ]
+  },
 
   // 404
   { // Always leave this as last one

@@ -27,7 +27,7 @@
 
               <q-card-separator />
               <q-card-actions>
-                <q-btn  color="secondary" @click="$router.push('/painel')"label="Acessar" />
+                <q-btn  color="secondary" @click="login()"label="Acessar" />
               </q-card-actions>
             </q-card>
 
@@ -42,8 +42,11 @@
 </template>
 
 <script>
+  import { mapGetters, mapMutations } from 'vuex'
   import { Dialog } from 'quasar'
-    export default {
+  import { LocalStorage, SessionStorage } from 'quasar'
+
+  export default {
         name: "login",
         data(){
           return {
@@ -55,23 +58,47 @@
             }
           }
         },
+       created(){
+          let email = SessionStorage.get.item("email")
+          if (email != null){
+            this.$router.push('/painel')
+          }
+       },
+      computed : {
+      ...mapGetters('usuario',[
+          'getUsuarioLogado'
+        ])
+      },
       methods: {
-        salvar(){
-          this.$http.post( '/evento/cadastro', {
-            params:{
-              nome: this.usuario.nome,
+        ...mapMutations('usuario',[
+          'logar',
+        ]),
+        login(){
+          this.$http.post('/usuario/login', {
               email: this.usuario.email,
               password: this.usuario.password,
-            }
           })
             .then(response => {
-
+                let result = response.data.result.response
+                let usuario = result.usuario
+                if (usuario != null){
+                  SessionStorage.set("email",usuario[0])
+                  this.$router.push('/painel')
+                }else{
+                  Dialog.create(
+                    {
+                      title: 'Error',
+                      message: "Email ou Senha inválida"
+                    }
+                  )
+                }
             })
             .catch(e=>{
+              console.log(e)
               Dialog.create(
                 {
                   title: 'Error',
-                  message: "" + e
+                  message: "Erro ao acessar o serviço"
                 }
               )
             });

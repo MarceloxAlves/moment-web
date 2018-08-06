@@ -8,7 +8,7 @@
           </q-timeline-entry>
 
           <slot v-for="evento in eventos">
-              <q-timeline-entry   @click="detalhe"
+              <q-timeline-entry   @click="detalhe()"
                                   :title="evento.descricao"
                                   :subtitle="evento.data"
                                   icon="check"
@@ -65,6 +65,10 @@
         getSide(){
            this.side.value = this.side.value == 0 ? 1 : 0
            this.side.label = this.side.value == 0 ? 'left' : 'right'
+        },
+
+        detalhe(){
+
         }
 
       }
