@@ -1,8 +1,4 @@
 <template>
-  <q-layout>
-    <q-page-container>
-      <q-page>
-        <br>
         <div class="row">
           <div class="col s10">
             <q-tabs color="secondary" inverted>
@@ -11,17 +7,12 @@
               <q-tab  slot="title" name="tab-3" icon="account_box" label="Minhas Inscrições" />
               <!-- Targets -->
               <q-tab-pane name="tab-1">
-                    Listar meus eventos
+                    <meus-eventos></meus-eventos>
               </q-tab-pane>
               <q-tab-pane name="tab-3">Listar Minhas Inscrições</q-tab-pane>
             </q-tabs>
           </div>
         </div>
-
-      </q-page>
-    </q-page-container>
-  </q-layout>
-
 </template>
 
 <script>
@@ -41,26 +32,7 @@
           }
         },
       methods: {
-        salvar(){
-          this.$http.post( '/evento/cadastro', {
-            params:{
-              nome: this.usuario.nome,
-              email: this.usuario.email,
-              password: this.usuario.password,
-            }
-          })
-            .then(response => {
-              console.log(response)
-            })
-            .catch(e=>{
-              Dialog.create(
-                {
-                  title: 'Error',
-                  message: "" + e
-                }
-              )
-            });
-          }
+
       }
     }
 </script>

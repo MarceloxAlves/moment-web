@@ -36,10 +36,24 @@ export default [
     ]
   },
   {
-    path: '/eventos',
+    path: '/evento/atividade-evento',
     component: () => import('layouts/logado'),
     children: [
-      { path: '', component: () => import('pages/evento/listagem') }
+      { path: '', component: () => import('pages/atividade/atividade-evento') }
+    ]
+  },
+  {
+    path: '/evento/list-atividade-evento',
+    component: () => import('layouts/home'),
+    children: [
+      { path: '', component: () => import('pages/atividade/list-atividade-evento') }
+    ]
+  },
+  {
+    path: '/eventos',
+    component: () => import('layouts/home'),
+    children: [
+      { path: '', component: () => import('pages/evento/listagem-evento') }
     ]
   },
 

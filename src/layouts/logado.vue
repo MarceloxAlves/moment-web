@@ -13,6 +13,7 @@
       </q-toolbar>
     </q-layout-header>
 
+
     <q-layout-drawer
       side="left"
       v-model="left"
@@ -28,10 +29,21 @@
           <q-item-side icon="home" />
           <q-item-main label="Início" sublabel="voltar para a pagina inicial" />
         </q-item>
+
         <q-item to="/eventos">
           <q-item-side icon="event" />
-          <q-item-main label="Eventos" sublabel="eventos cadastrados" />
+          <q-item-main label="Eventos" sublabel="listagem de eventos" />
           <q-item-side right icon="thumb_up" />
+        </q-item>
+
+        <q-item to="/local">
+          <q-item-side icon="location_on" />
+          <q-item-main label="Locais" sublabel="listagem de locais"  />
+        </q-item>
+
+        <q-item to="/tags">
+          <q-item-side icon="event" />
+          <q-item-main label="Tags" sublabel="listagem de tags" />
         </q-item>
 
       </q-scroll-area>
@@ -57,7 +69,7 @@ export default {
           id: null,
           nome: null,
           email: null
-      }
+      },
     }
   },
   watch:{
