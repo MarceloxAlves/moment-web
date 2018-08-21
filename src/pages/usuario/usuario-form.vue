@@ -63,7 +63,7 @@
         },
       methods: {
         salvar(){
-          this.$http.post( '/usuario/cadastrar', {
+            this.$http.post( '/usuario/cadastrar', {
             headers: {
               'Content-Type': 'application/json;charset=UTF-8'
             },

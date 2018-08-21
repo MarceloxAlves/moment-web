@@ -45,9 +45,12 @@ module.exports = function (ctx) {
         'QLayoutDrawer',
         'QPageContainer',
         'QPage',
+        'QPageSticky',
         'QToolbar',
         'QToolbarTitle',
         'QBtn',
+        'QFab',
+        'QFabAction',
         'QIcon',
         'QList',
         'QListHeader',
@@ -70,10 +73,25 @@ module.exports = function (ctx) {
         'QTimeline',
         'QTimelineEntry',
         'QInfiniteScroll',
-        'QScrollArea'
+        'QScrollArea',
+        'QAutocomplete',
+        'QChip',
+        'QSearch',
+        'QModal',
+        'QDatetime',
+        'QTable',
+        'QTh',
+        'QTr',
+        'QTd',
+        'QTableColumns',
+        'QBreadcrumbs',
+        'QBreadcrumbsEl',
+        'QCollapsible',
+        'QCheckbox'
       ],
       directives: [
-        'Ripple'
+        'Ripple',
+        'CloseOverlay'
       ],
       // Quasar plugins
       plugins: [
@@ -82,9 +100,9 @@ module.exports = function (ctx) {
         'Dialog',
         'LocalStorage',
         'SessionStorage'
-      ]
+      ],
       // iconSet: ctx.theme.mat ? 'material-icons' : 'ionicons'
-      // i18n: 'de' // Quasar language
+       i18n: 'pt-br' // Quasar language
     },
     // animations: 'all' --- includes all animations
     animations: 'all',
