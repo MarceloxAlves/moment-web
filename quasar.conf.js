@@ -87,7 +87,8 @@ module.exports = function (ctx) {
         'QBreadcrumbs',
         'QBreadcrumbsEl',
         'QCollapsible',
-        'QCheckbox'
+        'QCheckbox',
+        'QBtnDropdown'
       ],
       directives: [
         'Ripple',

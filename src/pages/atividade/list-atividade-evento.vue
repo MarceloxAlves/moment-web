@@ -11,7 +11,7 @@
         <q-list highlight>
           <q-list-header>Atividades do Evento</q-list-header>
          <slot v-for="atividade in evento.atividades">
-           <q-item >
+           <q-item v-if="atividade.tipoAtividade.id > 0" >
              <q-item-side>
                <q-btn round @click="addCart(atividade)" color="secondary" icon="add_shopping_cart" />
              </q-item-side>
@@ -60,9 +60,20 @@
         },
       methods:{
         addCart(atividade){
+          Object.defineProperty(atividade, 'evento', {
+            value: this.evento.id,
+            writable: true,
+            enumerable: true,
+            configurable: true
+          })
           if (!this.$moment.in_array(atividade, this.cart)){
             this.cart.push(atividade)
             SessionStorage.set("cart",this.cart)
+            this.$q.notify({
+              message: "Atividade: "+ atividade.nome + " adicionada ao carrinho!",
+              timeout: 3000,
+              type: 'positive'
+            })
           }else{
             this.$q.notify({
               message: "Item ja adicionado no carrinho!",

@@ -37,15 +37,10 @@ export default {
     }
   },
   created(){
-    this.getCount()
+
   },
   methods: {
     openURL,
-    getCount () {
-      this.$http.get('/evento/count', {})
-      .then(response => {
-      })
-    }
   }
 }
 </script>

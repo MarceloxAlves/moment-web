@@ -24,8 +24,25 @@
         </q-td>
 
         <q-td slot="body-cell-id" slot-scope="props" :props="props">
-          <q-btn  color="blue-6" dense label="Inscritos" @click="onInscritos(props.row)" title="Inscritos" />&nbsp;
-          <q-btn  color="green-6" dense label="atividades" @click="onAtividade(props.row)" title="Adicionar Atividade" />&nbsp;
+          <q-btn-dropdown label="Ações" dense color="secondary">
+            <q-list link>
+              <q-item >
+                <q-item-main @click.native="onAtividade(props.row)">
+                  <q-item-tile label>Atividades</q-item-tile>
+                </q-item-main>
+              </q-item>
+              <q-item>
+                <q-item-main @click.native="onAtividade(props.row)">
+                  <q-item-tile label>Inscritos</q-item-tile>
+                </q-item-main>
+              </q-item>
+              <q-item>
+                <q-item-main @click.native="onCupons(props.row)">
+                  <q-item-tile label>Cupons</q-item-tile>
+                </q-item-main>
+              </q-item>
+            </q-list>
+          </q-btn-dropdown>&nbsp;
           <q-btn push color="blue-14" dense icon="edit"  @click="onEdit(props.row)"/>&nbsp;
           <q-btn push color="red-14" dense icon="remove" @click="onDelete(props.row.id)" />
         </q-td>
@@ -151,6 +168,10 @@
         onAtividade(evento){
           this.setEventoSelecionado(evento)
           this.$router.push('/evento/atividade-evento')
+        },
+        onCupons(evento){
+          this.setEventoSelecionado(evento)
+          this.$router.push('/evento/cupons')
         },
         onInscritos(evento){
           this.setEventoSelecionado(evento)

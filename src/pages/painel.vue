@@ -9,7 +9,7 @@
               <q-tab-pane name="tab-1">
                     <meus-eventos></meus-eventos>
               </q-tab-pane>
-              <q-tab-pane name="tab-3">Listar Minhas Inscrições</q-tab-pane>
+                    <listagem-inscricao></listagem-inscricao>
             </q-tabs>
           </div>
         </div>
@@ -18,9 +18,10 @@
 <script>
   import { Dialog } from 'quasar'
   import MeusEventos from "./evento/meus-eventos";
+  import ListagemInscricao from "./usuario/inscricao/listagem-inscricoes";
     export default {
         name: "painel",
-      components: {MeusEventos},
+      components: {ListagemInscricao, MeusEventos},
       data(){
           return {
             model: null,

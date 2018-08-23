@@ -36,6 +36,13 @@ export default [
     ]
   },
   {
+    path: '/evento/cupons',
+    component: () => import('layouts/logado'),
+    children: [
+      { path: '', component: () => import('pages/evento/cupom/listagem-cupom') }
+    ]
+  },
+  {
     path: '/evento/atividade-evento',
     component: () => import('layouts/logado'),
     children: [
