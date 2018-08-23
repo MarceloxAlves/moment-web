@@ -18,6 +18,44 @@
             <q-btn color="negative" flat round delete icon="delete" @click="deleteRow" />
           </template>
 
+            <q-td slot="body-cell-dataValidade" slot-scope="props" :props="props">
+            {{onDateFormat(props.row.dataValidade)}}
+            </q-td>
+
+          <q-td slot="body-cell-Utilizado" slot-scope="props" :props="props">
+            <q-chip v-if="props.row.utilizado"  tag color="red" icon-right="close">
+              Utilizado
+            </q-chip>
+            <q-chip v-else  tag color="secondary" icon-right="check">
+              Disponível
+            </q-chip>
+          </q-td>
+
+          <q-td slot="body-cell-id" slot-scope="props" :props="props">
+            <q-btn-dropdown push color="blue-7" dense icon="printer">
+              <q-list link>
+                <q-item v-close-overlay>
+                  <q-item-side icon="share" inverted color="blue" />
+                  <q-item-main>
+                    <q-item-tile label>Imprimir Ingresso</q-item-tile>
+                  </q-item-main>
+                </q-item>
+                <q-item v-close-overlay >
+                  <q-item-side icon="share" inverted color="blue" />
+                  <q-item-main>
+                    <q-item-tile label>Google</q-item-tile>
+                  </q-item-main>
+                </q-item>
+                <q-item v-close-overlay>
+                  <q-item-side icon="share" inverted color="blue" />
+                  <q-item-main>
+                    <q-item-tile label>Whatsapp</q-item-tile>
+                  </q-item-main>
+                </q-item>
+              </q-list>
+            </q-btn-dropdown>&nbsp;
+          </q-td>
+
         </q-table>
       </div>
   </q-page-container>
@@ -34,10 +72,10 @@
           inscricoes: [],
           novo: false,
           columns: [
-            { name: 'desc', required: true, label: 'ID', align: 'left', field: 'id', sortable: true},
+            { name: 'desc', required: true, label: 'Descrição', align: 'left', field: 'descricao', sortable: true},
             { name: 'desconto', label: 'Desconto', align: 'left', field: 'desconto', sortable: true},
-            { name: 'dataPagamento', label: 'Data Pagamento', align: 'left', field: 'dataPagamento', sortable: true},
-            { name: 'statusInscricao', label: 'Status', align: 'left', field: 'statusInscricao', sortable: true },
+            { name: 'codigo', label: 'Código', align: 'left', field: 'codigo', sortable: true},
+            { name: 'dataValidade', label: 'Validade', align: 'left', field: 'dataValidade', sortable: true },
             { name: 'Utilizado', label: 'Utilizado', align: 'left', field: 'utilizado', sortable: true },
             { name: 'id', label: 'Ações', align: 'left', field: "id"},
           ],
